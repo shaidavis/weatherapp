@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.min.js"></script>
+
+  <title></title>
+</head>
+<body>
+
+     <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1>WeatherApp <i class="fa fa-sun-o" aria-hidden="true"></i> </h1> 
+
+      </div>
+
+
+      <div class="city-display">
+      </div>
+
+      <form class="weather-form">
+        <h3>Search a City</h3>
+
+        <div class="form-group">
+          <input type="text" id="city-name" class="form-control" placeholder="City Name">
+          </input>
+        </div>
+
+        <button class="btn btn-primary search-city">Search</button>
+      </form>
+
+    </div>
+  </div>
+
+<script id="city-template" type="text/x-handlebars-template">
+
+    
+      {{#each cities}}
+          <div class="city-wrapper panel panel-default">
+            <div class="panel-heading">
+              <div class="pull-left"><h4>{{cityDisplay}}</h4></div> 
+              <div class="pull-right" style="margin:5px"><i class="fa fa-trash-o fa-2x remove-button" aria-hidden="true"></i></div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+              <p>{{cityWeatherF}}&#176;F</p>
+              <p>{{cityWeatherC}}&#176;C</p>
+              <p>{{cityWeatherK}}&#176;K</p>          
+            </div>
+            <div class="panel-footer">
+              <div class="comments-container">
+                <div class=comments-list>
+                  
+                </div>
+                 
+                <input type="text" class="comment-name">
+                <button class="btn btn-primary add-comment">Post Comment</button> 
+                </div>            
+              </div>
+            </div>
+      {{/each}}
+    
+  </script>
+
+<script id="comments-template" type="text/x-handlebars-template">
+  <div><i>{{text}}</i></div>
+</script>
+
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
